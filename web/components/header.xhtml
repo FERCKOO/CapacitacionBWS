@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:body>
+
+        <ui:composition>
+            <style>
+                #circle {
+                    width: 70px;
+                    height: 70px;
+                    background: #EBA91E;
+                    -moz-border-radius: 50px;
+                    -webkit-border-radius: 50px;
+                    border-radius: 50%;
+
+                    display: flex;
+                    justify-content: center;
+                }
+            </style>
+
+            <h:form>
+
+                <div class="ui-g-1">
+
+                    <div id="circle" >
+                        <p:graphicImage value="/imagenes/Logo.png" title="imagenLogo" 
+                                        alt="Logo" width="80px" height="70" />
+                    </div>
+
+                </div>
+                <div class="ui-g-10">
+
+                    <div class="ui-g-12">
+                        <p:outputLabel value="Nombre: #{sesion.getUserName()}." 
+                                       style="font-size: 20px; font-family: fantasy"/>
+
+                    </div>
+
+                    <div class="ui-g-12">
+
+                        <p:outputLabel value="Id usuario: #{sesion.getUserId()}." 
+                                       style="font-size: 20px; font-family: fantasy"/>
+
+                    </div>      
+                </div>
+                <div class="ui-g-1 ui-g-nopad">
+                    <p:commandButton action="#{usuarioBean.logout()}"  value="Cerrar sesión"
+                                     icon="pi pi-sign-out" process="@this"/>
+                </div>
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>

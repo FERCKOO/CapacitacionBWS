@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <ui:composition>
+            <h:form style="">
+
+                <p:button href="#{request.contextPath}/views/galeria.xhtml" 
+                          value="Inicio" icon="pi pi-home"
+                          style="margin-top:20px; width: 100%; text-align: left">
+                </p:button>
+
+                <p:button href="#{request.contextPath}/views/ciudad.xhtml" 
+                          value="Ciudad" icon="pi pi-building"
+                          style="margin-top:20px; width: 100%; text-align: left">
+                </p:button>
+
+                <p:button href="#{request.contextPath}/views/parametro.xhtml" 
+                          value="Parámetro" icon="pi pi-book"
+                          style="margin-top:20px; width: 100%; text-align: left">
+                </p:button>
+
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>

@@ -28,7 +28,7 @@ public class CiudadModel {
         try {
             Connection conexion = PoolDB.getConnection("Activa");
             PreparedStatement stmt = conexion.prepareStatement("Select ID_CIUDAD, "
-                    + "DESCRIPCION, ACTIVO, LADA, ISNULL(ID_USUARIO, 0) AS ID_USUARIO from C_CIUDAD");
+                    + "DESCRIPCION, CODIGO, ACTIVO, LADA, ISNULL(ID_USUARIO, 0) AS ID_USUARIO from C_CIUDAD");
 
             ResultSet res = stmt.executeQuery();
 
@@ -37,9 +37,10 @@ public class CiudadModel {
 
                 obj.setId(res.getInt("ID_CIUDAD"));
                 obj.setDescripcion(res.getString("DESCRIPCION"));
-                obj.setEstadoCiudad(res.getInt("ACTIVO"));
+                obj.setEstadoCiudad(res.getLong("ACTIVO"));
                 obj.setLada(res.getInt("LADA"));
                 obj.setIdUsuario(res.getInt("ID_USUARIO"));
+                obj.setCodigo(res.getString("CODIGO"));
 
                 lista.add(obj);
             }
@@ -69,7 +70,7 @@ public class CiudadModel {
             stmt.setString(1, ciudad.getDescripcion());
             stmt.setString(2, ciudad.getCodigo());
             stmt.setInt(3, ciudad.getLada());
-            stmt.setInt(4, ciudad.getEstadoCiudad());
+            stmt.setLong(4, ciudad.getEstadoCiudad());
             stmt.setInt(5, ciudad.getIdUsuario());
 
             int res = stmt.executeUpdate();
@@ -164,7 +165,7 @@ public class CiudadModel {
                         + " WHERE ID_CIUDAD = ?"); // Update
 
                 stmt.setString(1, ciudad.getDescripcion());
-                stmt.setInt(2, ciudad.getEstadoCiudad());
+                stmt.setLong(2, ciudad.getEstadoCiudad());
                 stmt.setInt(3, ciudad.getId());
 
             } else {
@@ -173,7 +174,7 @@ public class CiudadModel {
 
                 stmt.setString(1, ciudad.getDescripcion());
                 stmt.setInt(2, ciudad.getLada());
-                stmt.setInt(3, ciudad.getEstadoCiudad());
+                stmt.setLong(3, ciudad.getEstadoCiudad());
                 stmt.setInt(4, ciudad.getId());
 
             }

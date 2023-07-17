@@ -3,10 +3,6 @@ package objetos;
 import sesiones.Sesion;
 
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 /**
  *
  * @author Blueweb Objeto
@@ -15,7 +11,7 @@ public class Ciudad {
 
     private int id;
     private String descripcion;
-    private int estadoCiudad;
+    private long estadoCiudad;
     private int lada;
     
     
@@ -26,7 +22,7 @@ public class Ciudad {
 
     }
 
-    public Ciudad(int id, String descripcion, int estadoCiudad, int lada) {
+    public Ciudad(int id, String descripcion, long estadoCiudad, int lada) {
         this.id = id;
         this.descripcion = descripcion;
         this.estadoCiudad = estadoCiudad;
@@ -64,14 +60,14 @@ public class Ciudad {
     /**
      * @return the estadoCiudad
      */
-    public int getEstadoCiudad() {
+    public long getEstadoCiudad() {
         return estadoCiudad;
     }
 
     /**
      * @param estadoCiudad the estadoCiudad to set
      */
-    public void setEstadoCiudad(int estadoCiudad) {
+    public void setEstadoCiudad(long estadoCiudad) {
         this.estadoCiudad = estadoCiudad;
     }
 

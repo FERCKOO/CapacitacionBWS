@@ -25,7 +25,7 @@ public class CiudadBean {
     private String descripcion = "";
     private String codigo = "";
     private int lada;
-    private int estadoCiudad;
+    private long estadoCiudad;
 
     private Ciudad ciudad;
 
@@ -45,14 +45,10 @@ public class CiudadBean {
         ciudad.setDescripcion(descripcion);
         ciudad.setCodigo(codigo);
         ciudad.setLada(lada);
-        ciudad.setEstadoCiudad(estadoCiudad);
+        ciudad.setEstadoCiudad(1);
+        
 
         ciudad.setIdUsuario();
-
-        descripcion = "";
-        codigo = "";
-        lada = 0;
-        estadoCiudad = 0;
 
         PrimeFaces current = PrimeFaces.current();
         current.executeScript("PF('añadirDialog').hide();");
@@ -62,6 +58,11 @@ public class CiudadBean {
         ciudades = model.traerCiudades();
 
         addMessage(respuesta.getTipoRespuesta(), respuesta.getHead(), respuesta.getMsg() + respuesta.getIdRespuesta());
+        
+        descripcion = "";
+        codigo = "";
+        lada = 0;
+        estadoCiudad = 0;
 
     }
 
@@ -165,14 +166,14 @@ public class CiudadBean {
     /**
      * @return the estadoCiudad
      */
-    public int getEstadoCiudad() {
+    public long getEstadoCiudad() {
         return estadoCiudad;
     }
 
     /**
      * @param estadoCiudad the estadoCiudad to set
      */
-    public void setEstadoCiudad(int estadoCiudad) {
+    public void setEstadoCiudad(long estadoCiudad) {
         this.estadoCiudad = estadoCiudad;
     }
 

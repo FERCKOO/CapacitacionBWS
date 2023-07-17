@@ -48,7 +48,7 @@
                         <p:outputLabel for="codigo" value="Código:" />
                         <p:inputText id="codigo" value="#{ciudadBean.codigo}" 
                                      placeholder="Código" title="Campo de tipo texto"
-                                     maxlength="4"/>
+                                     maxlength="4" />
                         <p:tooltip id="toolTipCodigo" for="codigo" 
                                    showEvent="focus" hideEvent="blur"/>
 
@@ -58,13 +58,7 @@
                         <p:tooltip id="toolTipLada" for="lada" showEvent="focus" 
                                    hideEvent="blur" />
 
-                        <p:outputLabel for="estadoCiudad" value="Estado:" />
-                        <p:selectOneMenu id="estadoCiudad" 
-                                         value="#{ciudadBean.estadoCiudad}"
-                                         style="width:100%">
-                            <f:selectItem itemLabel="No activo" itemValue="0" />
-                            <f:selectItem itemLabel="Activo" itemValue="1" />
-                        </p:selectOneMenu>
+
                         <!--
                                                 <p:outputLabel for="estadoCiudad" value="Activo:" />
                                                 <p:inputText id="estadoCiudad" value="#{ciudadBean.estadoCiudad}"
@@ -105,6 +99,23 @@
                             </f:facet>
                             <f:facet name="input">
                                 <p:inputText value="#{ciudad.descripcion}" label="id" required="true"
+                                             maxlength="15"/>
+                            </f:facet>
+
+                        </p:cellEditor>
+
+                    </p:column>
+
+                    <p:column headerText="Codigo" filterBy="#{ciudad.codigo}" 
+                              filterMatchMode="contains" id="filtroCodigo">
+
+                        <p:cellEditor>
+
+                            <f:facet name="output">
+                                <h:outputText value="#{ciudad.codigo}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{ciudad.codigo}" label="codigo" required="true"
                                              maxlength="15"/>
                             </f:facet>
 
@@ -154,34 +165,8 @@
                     </p:column>
 
 
-                    <!--
-            <p:column headerText="Estado cliente" filterBy="#{ciudad.estadoCiudad}" 
-                      filterMatchMode="contains" >
-                <p:cellEditor>
-                <f:facet name="output">
-                    <h:outputText value="#{ciudad.estadoCiudad}"/>
-                </f:facet>
-                    <f:facet name="input">
-                        <p:selectOneMenu style="width:100%" required="true"
-                                         value="#{ciudad.estadoCiudad}">
-                            <f:selectItem itemLabel="0" itemValue="0" />
-                            <f:selectItem itemLabel="1" itemValue="1" />
-                        </p:selectOneMenu>
-                    </f:facet>
-                    
-                </p:cellEditor>
 
-            </p:column>
-                    -->
-
-                    <p:column headerText="Id Usuario" filterBy="#{ciudad.idUsuario}" 
-                              filterMatchMode="contains" >
-
-                        <h:outputText value="#{ciudad.idUsuario}"/>
-
-                    </p:column>
-
-                    <p:column style="width:32px;text-align: center">
+                    <p:column headerText="Editar" style="width:36px;text-align: center">
 
                         <p:rowEditor style=" border-radius: 2px" 
                                      editTitle="Editar" saveTitle="Guardar"
@@ -189,7 +174,7 @@
 
                     </p:column>
 
-                    <p:column style="width:32px;text-align: center">
+                    <p:column headerText="Borrar" style="width:36px;text-align: center">
 
                         <p:commandButton id="EliminarCiudadBtn" process="@this"
                                          icon="pi pi-ban" title="Eliminar" update="dtCiudades"

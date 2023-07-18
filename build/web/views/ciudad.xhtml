@@ -58,17 +58,6 @@
                         <p:tooltip id="toolTipLada" for="lada" showEvent="focus" 
                                    hideEvent="blur" />
 
-
-                        <!--
-                                                <p:outputLabel for="estadoCiudad" value="Activo:" />
-                                                <p:inputText id="estadoCiudad" value="#{ciudadBean.estadoCiudad}"
-                                                             placeholder="Activo" maxlength="1" required="true"
-                                                             title="Campo de tipo bit. (1 ó 0)"/>
-
-                        <p:tooltip id="toolTipActivo" for="estadoCiudad" showEvent="focus" 
-                                   hideEvent="blur" />
-                        -->
-
                         <p:commandButton value="Confirmar" icon="pi pi-check"
                                          action="#{ciudadBean.agregarCiudad()}" 
                                          style="margin-top: 15px; margin-left:30px; color: black;"
@@ -77,17 +66,12 @@
 
                 </p:dialog>
 
-                <p:dataTable id="dtCiudades" value="#{ciudadBean.ciudades}" editable="true" widgetVar="dtCiudades"
-                             var="ciudad" paginator="true" rows="10" paginatorPosition="bottom">
+                <p:dataTable id="dtCiudades" value="#{ciudadBean.ciudades}"  
+                             var="ciudad" paginator="true" rows="10" editable="true"
+                             paginatorPosition="bottom" widgetVar="dtCiudades"
+                             rowsPerPageTemplate="5,10,15,{ShowAll|'All'}">
 
                     <p:ajax event="rowEdit" listener="#{ciudadBean.editarCiudad(ciudad)}" />
-
-                    <p:column headerText="Id Ciudad" filterBy="#{ciudad.id}" 
-                              filterMatchMode="contains" >
-
-                        <h:outputText value="#{ciudad.id}"/>
-
-                    </p:column>
 
                     <p:column headerText="Descripción" filterBy="#{ciudad.descripcion}" 
                               filterMatchMode="contains" id="filtroDescripcion">
@@ -106,7 +90,7 @@
 
                     </p:column>
 
-                    <p:column headerText="Codigo" filterBy="#{ciudad.codigo}" 
+                    <p:column headerText="Código" filterBy="#{ciudad.codigo}" 
                               filterMatchMode="contains" id="filtroCodigo">
 
                         <p:cellEditor>

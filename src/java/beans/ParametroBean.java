@@ -48,9 +48,7 @@ public class ParametroBean {
         valor = "";
 
         PrimeFaces current = PrimeFaces.current();
-
-        current.executeScript(
-                "PF('addDialogParam').hide();");
+        current.executeScript("PF('addDialogparam').hide();");
 
         respuesta = model.añadirParametro(parametro);
 

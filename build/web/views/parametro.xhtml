@@ -64,7 +64,7 @@
                         <p:commandButton value="Confirmar" icon="pi pi-check"
                                          actionListener="#{parametroBean.agregarParametro()}" 
                                          style="margin-top: 15px; margin-left:30px; color: black;"
-                                         process="@this addDialogparam" update="dtParametros AddPanel">
+                                         process="@this addDialogparam" update="dtParametros AddPanel addDialogparam">
                         </p:commandButton>
                     </h:panelGrid>
 
@@ -72,14 +72,10 @@
 
                 <p:dataTable id="dtParametros" var="parametro" value="#{parametroBean.parametros}"
                              widgetVar="dtParametros" editable="true" 
-                             rows="10"  paginator="true" paginatorPosition="bottom">
+                             rows="10"  paginator="true" paginatorPosition="bottom"
+                             rowsPerPageTemplate="5,10,15,{ShowAll|'All'}">
 
                     <p:ajax event="rowEdit" listener="#{parametroBean.editarParametro(parametro)}" />
-
-                    <p:column headerText="Id parámetro" filterBy="#{parametro.id}" 
-                              filterMatchMode="contains"  >
-                        <h:outputText value="#{parametro.id}"/>
-                    </p:column>
 
                     <p:column headerText="Nombre" filterBy="#{parametro.nombre}"  
                               filterMatchMode="contains" >
